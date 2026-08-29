@@ -1,0 +1,193 @@
+/* ==========================================
+   VARIABLES Y RESET (Estilos básicos)
+   ========================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --font-family: 'Plus Jakarta Sans', sans-serif;
+    --bg-body: #faf8ff;
+    --bg-card: #ffffff;
+    --primary: #8b5cf6;
+    --text-dark: #1e1b4b;
+    --text-muted: #6b7280;
+    --border-color: #f3e8ff;
+    --shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.08);
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: var(--bg-body);
+    color: var(--text-dark);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ==========================================
+   HEADER & NAV (Flexbox)
+   ========================================== */
+.header {
+    background-color: #ffffff;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    letter-spacing: 1px;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.nav a:hover {
+    color: var(--primary);
+}
+
+/* ==========================================
+   MAIN & HERO
+   ========================================== */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 50px 20px;
+    flex: 1;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.badge {
+    background-color: #f3e8ff;
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-bottom: 12px;
+}
+
+.hero h1 {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* ==========================================
+   2. LAYOUT: GRID (Móvil: 1 columna por defecto)
+   ========================================== */
+.grid-servicios {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna en Móvil */
+    gap: 24px;
+}
+
+/* 3. ESTILOS BÁSICOS (Tarjetas, Padding, Margin, Bordes) */
+.card {
+    background-color: var(--bg-card);
+    padding: 32px 24px;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+}
+
+.card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+    flex: 1;
+}
+
+.btn {
+    text-decoration: none;
+    background-color: var(--primary);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: opacity 0.2s ease;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+.footer {
+    background-color: #ffffff;
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* ==========================================
+   4. MEDIA QUERIES (RESPONSIVE)
+   ========================================== */
+
+/* Tablet: 2 columnas (pantallas desde 600px hasta 900px) */
+@media (min-width: 600px) {
+    .grid-servicios {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* Escritorio: 3 columnas (pantallas mayores a 900px) */
+@media (min-width: 900px) {
+    .grid-servicios {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
